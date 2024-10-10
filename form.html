@@ -40,8 +40,24 @@
             <label for="fn">Vorname</label>
             <input id="fn" type="text" name="fn" placeholder="Max">
             <label for="ln">Nachname</label>
-            <input id="ln" type="text" name="fn" placeholder="Mustermann">
+            <input id="ln" type="text" name="ln" placeholder="Mustermann" pattern="[A-Z, a-z]">
+            <label for="age">Alter</label>
+            <input id="age" type="number" min="18" name="age">
+            <label for="mail">E-Mail</label>
+            <input id="mail" type="email" name="email" required>
         </fieldset>
+        <fieldset>
+            <legend>Interessen</legend>
+            <!-- Mehrfachauswahl mit Checkboxen-->
+            <label for="html">HTML</label>
+            <input id="html" type="checkbox" name="interest[]" value="html">
+            <label for="css">CSS</label>
+            <input id="css" type="checkbox" name="interest[]" value="css">
+            <label for="JavaScript">JS</label>
+            <input id="JavaScript" type="checkbox" name="interest[]" value="js">
+        </fieldset>
+        <input type="submit" id="submit" value="Senden">
+        <input type="reset" id="reset" value="Abbrechen">
 
 
     </form>
