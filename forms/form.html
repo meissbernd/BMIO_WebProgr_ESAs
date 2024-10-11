@@ -5,14 +5,13 @@
     <title>Freundschaftsspielanfrage</title>
 </head>
 <body>
-<h1>Anfrage Freundschaftsspiel</h1>
+<h1 id="form-heading">Anfrage Freundschaftsspiel</h1>
 <nav>
     <ul>
         <li><a href="../index.html">Hauptseite</a></li>
     </ul>
 </nav>
 <div>
-
     <form action="form.html" method="get" aria-labelledby="form-heading">
         <!-- Bereiche im Formular   -->
         <fieldset aria-labelledby="contact">
@@ -62,7 +61,7 @@
             <!-- Text message -->
             <legend id="info">Sonstige Infos?</legend>
             <label for="message">Was wollt ihr uns sonst noch mitteilen?</label>
-            <textarea id="message"></textarea>
+            <textarea id="message" maxlength="1000"></textarea>
         </fieldset>
         <input type="submit" id="submit" value="Senden">
         <input type="reset" id="reset" value="Abbrechen">
