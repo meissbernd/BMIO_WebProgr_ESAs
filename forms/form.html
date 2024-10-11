@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
     <meta charset="utf-8">
-    <title>HTML Formulare</title>
+    <title>Freundschaftsspielanfrage</title>
 </head>
 <body>
 <h1>Anfrage Freundschaftsspiel</h1>
@@ -11,13 +11,8 @@
         <li><a href="../index.html">Hauptseite</a></li>
     </ul>
 </nav>
-<!-- Wenn weiterer Content vorhanden ist, dann eine main einfügen. -->
-<article>
-    <p>Wir freuen uns immer über Spielanfragen!</p>
-</article>
-<!--Todo: check barrierefreiheit, zwang Spielform und geschlecht auszuwählen-->
 <div>
-    <h2 id="form-heading">Freundschaftsspielanfrage</h2>
+
     <form action="form.html" method="get" aria-labelledby="form-heading">
         <!-- Bereiche im Formular   -->
         <fieldset aria-labelledby="contact">
@@ -33,41 +28,45 @@
             <label for="mail">E-Mail</label>
             <input id="mail" type="email" name="email" required>
         </fieldset>
-        <fieldset>
+        <fieldset aria-labelledby="game_type">
             <!-- Check Box Options-->
-            <legend>Mögliche Spielform</legend>
+            <legend id="game_type"> Mögliche Spielform</legend>
             <label for="7v7">7vs7</label>
-            <input id="7v7" type="checkbox" name="interest[]" value="7">
+            <input id="7v7" type="checkbox" name="game[]" value="7">
             <label for="9v9">9vs9</label>
-            <input id="9v9" type="checkbox" name="interest[]" value="9">
+            <input id="9v9" type="checkbox" name="game[]" value="9" checked>
             <label for="11v11">11vs11</label>
-            <input id="11v11" type="checkbox" name="interest[]" value="11">
+            <input id="11v11" type="checkbox" name="game[]" value="11">
         </fieldset>
-        <fieldset>
-        <!-- Select Option -->
-            <legend>In welcher Altersklasse spielt das anfragende Team?</legend>
+        <fieldset aria-labelledby="age">
+            <!-- Select Option -->
+            <legend id="age">In welcher Altersklasse spielt das anfragende Team?</legend>
             <label for="ak">Altersklasse</label>
-            <select id="ak" name="language">
+            <select id="ak" name="age">
                 <option value="B-Jun">B-Junioren</option>
                 <option value="C-Jun">C-Junioren</option>
                 <option value="D-Jun">D-Junioren</option>
             </select>
         </fieldset>
-        <!-- Radio Button -->
-        <fieldset>
-            <legend>Mädchen-, Jungs- oder Mischteam?</legend>
-            <label>
-                <input type="radio" name="sex[]" value="weiblich"> Weiblich
-                <input type="radio" name="sex[]" value="männlich"> Männlich
-                <input type="radio" name="sex[]" value="gemischt"> Gemischt
-            </label>
+        <fieldset aria-labelledby="gender">
+            <!-- Radio Button -->
+            <legend id="gender">Mädchen-, Jungs- oder Mischteam?</legend>
+            <label for="weiblich">Weiblich</label>
+            <input id="weiblich" type="radio" name="gender" value="weiblich" required>
+            <label for="männlich">Männlich</label>
+            <input id="männlich" type="radio" name="gender" value="männlich" required>
+            <label for="gemischt">Gemischt</label>
+            <input id="gemischt" type="radio" name="gender" value="gemischt" required>
+        </fieldset>
+        <fieldset aria-labelledby="info">
+            <!-- Text message -->
+            <legend id="info">Sonstige Infos?</legend>
+            <label for="message">Was wollt ihr uns sonst noch mitteilen?</label>
+            <textarea id="message"></textarea>
         </fieldset>
         <input type="submit" id="submit" value="Senden">
         <input type="reset" id="reset" value="Abbrechen">
-
-
     </form>
 </div>
-
 </body>
 </html>
