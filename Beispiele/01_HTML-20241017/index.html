@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <!-- Meta Infos und zusätzliche Ressourcen in Form von Texten -->
+        <meta charset="utf-8">
+        <title>HTML5</title>
+        <meta name="author" content="Rebecca Dombach">
+        <meta name="date" content="2024-09-03">
+        <!-- Meta Infos und zusätzliche Ressourcen in Form von Verlinkungen -->
+        <link rel="icon" type="image/vnd.microsoft.icon" href="pics/html5.ico">
+        <link rel="stylesheet" href="css/test.css">
+    </head>
+    <body>
+        <!-- sichtbar im viewport -->
+        <header>
+            <!-- h1 sollte nur einmal für die Hauptüberschrift verwendet werden -->
+            <h1>HTML5</h1>
+            <h2>Die Struktur eines HTML Dokumentes</h2>
+            <img src="pics/html5.png" alt="HTML5 Logo">
+        </header>
+        <!-- Auch die nav sollte es nur einmal geben. -->
+        <nav>
+            <ul>
+                <!-- Verlinkungen innerhalb des Dokumentes beginnen mit einem #. -->
+                <!-- Verlinkungen innerhalb der nav werden stärker von Suchmaschinen gewichtet. -->
+                <li>
+                    <a href="#aufbau">Aufbau eines Dokumentes</a>
+                </li>
+                <li><a href="#syntax">Syntax</a></li>
+                <li><a href="#semantik">Semantik</a></li>
+                <li><a href="#accessibility">Barrierefreiheit</a></li>
+
+            </ul>
+        </nav>
+        <main>
+            <article id="aufbau">
+                <h2>Aufbau eines HTML Dokumentes</h2>
+                <p>Für gute Maschinenlesbarkeit sollte ein Dokument immer korrekt aufgebaut sein.
+                    D.h. die Syntax ist korrekt. Aber neben der Syntax ist auch auf die Semantik zu achten.</p>
+                <p>Die Bestandteile eines Dokumentes sind <em>Elemente</em>, <em>Attribue</em> und <em>Textknoten</em>.</p>
+                <p>Das gesamte Dokument sollte in sinnvolle Bereiche aufgeteilt werden.</p>
+                <p>Wichtige Bereiche sind die Navigation, einzelne Artikel, Header und Footer, Listen, Tabellen, Formulare, etc.</p>
+                <p>Eine Übersicht und die Erklärung zu den einzelnen Elementen finden Sie beim <a href="https://html.spec.whatwg.org/multipage/#toc-semantics" target="_blank">WHATWG</a>,
+                einer Arbeitsgruppe speziell für HTML5 vom <a href="https://www.w3.org/" target="_blank">W3C</a>.</p>
+                <!-- Verlinkungen zu anderen Dokumenten benötigen eine url oder einen Pfad. Mit dem Attribut target öffnen Sie einen neuen tab im Browser.  -->
+            </article>
+            <article id="syntax">
+                <h2>Syntax</h2>
+                <p>Die korrekte Syntax ist über den <a href=" https://validator.w3.org/" target="_blank">Validator</a> nachzuprüfen.
+                    Für die meisten Werkzeuge gibt es mittlerweile Plugins, um den Validator zu integrieren.
+                </p>
+                <p>Elemente und Attribute werden wie folgt notiert.</p>
+                <p>Elemente mit Inhalt haben ein Start- und ein Endtag.
+                    Dazwischen befindet sich der Inhalt.
+                    <code>&lt;element&gt;content&lt;/element&gt;</code>
+                </p>
+                <p>Elemente ohne Inhalt nennen sich Standalone Elemente und haben nur ein Starttag.
+                    <code>&lt;element&gt;</code>
+                    Bis auf wenige Ausnahmen haben diese Elemente i.d.R. Attribute.
+                </p>
+                <p>Elemente können durch Attribute weiter beschrieben werden.
+                    Attribute werden im Starttag notiert. 
+                    Jedes Element kann beliebig viele Attribute und jedes Attribut beliebig viele Werte besitzen.
+                    <code>&lt;element att1="wert1" att2="wert2a wert2b"&gt;content&lt;/element&gt;</code>
+                </p>
+            </article>
+            <article id="semantik">
+                <h2>Semantik</h2>
+                <p>Die Semantik, also die Verwendung sinnvoller und bedeutungsvoller Elemente dient vor allem der Barrierefreiheit.
+                    Aber auch Wartbarkeit und das Ranking in Suchmaschinen (SEO) profitieren von einer guten Semantik.
+                    Die Semantik muß vom Autor geprüft werden.
+                </p>
+                <p>Einige Semantikfehler findet auch der Validator.
+                    Z.B. sollten Artikel immer eine Überschrift haben.
+                </p>
+            </article>
+            <article id="accessibility">
+                <h2><abbr title="Web Content Accessibility Giudeline">WCAG</abbr> und <abbr  title="Accessible Rich Internet Applications">ARIA</abbr></h2>
+                <p>Mit Aria Attributen können einzelne Elemente besser für Hilfsmittel (z.B. Screenreader) zugänglich gemacht werden.
+                    Dabei gilt:
+                </p>
+                <ul>
+                    <li>Wenn es ein semantisches Element gibt, dann ist dieses zu nutzen.</li>
+                    <li>Wenn kein semantisches Element zur Verfügung steht, dann kommt ein ARIA Attribut zum Einsatz.</li>
+                </ul>
+                <!-- Zum Testen ergänzen Sie das main-Element um das Attribut role="main" 
+                oder im header-Element role="banner". -->
+                <p>Weiterführende Informationen finden Sie beim MDN</p>
+                <ul>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA" target="_blank">ARIA</a></li>
+                    <li><a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles" aria-label="Mehr zum Thema WAI Aria roles und deren Benutzung." target="_blank">mehr ...</a></li>
+                </ul>
+                <article>
+                    <h3>Beispiele für ARIA roles</h3>
+                    <p>Es existieren 6 Kategorien von ARIA roles.<br>
+                    Roles sind Attribute, die wie folgt eingefügt werden: <code>role="role type"</code><br>
+                    Einige <i>roles</i> müssen durch <i>states</i> bzw. <i>properties</i> ergänzt werden.</p>
+                    <aside>
+                        <h4>Werbeblock</h4>
+                        <div role="marquee" aria-live="off" aria-label="advertising">Hier befinden sich wechselnde Werbeanzeigen.</div>
+                    </aside>
+                    <p>Die <code>role="marguee"</code> wird für wechselde live Inhalte verwendet, 
+                        die nicht besonders wichtig sind.<br>
+                    Siehe <a href="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/marquee_role" target="_blank">marquee beim MDN</a>.</p>
+                </article>
+            </article>
+        </main>
+    </body>
+</html>

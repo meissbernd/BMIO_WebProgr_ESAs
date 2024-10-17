@@ -1,0 +1,77 @@
+/* 
+Regel:
+
+Selektor{Attribut: Wert;}
+WAS     {WIE}
+
+Beispiel:
+h1{
+    color: red;
+}
+*/
+
+/* Universal * */
+*{
+    color: hsl(0 100% 50%);
+    background: hsl(195 53% 79%);
+}
+/* Typ Selektoren */
+html{
+    /* font properties werden vererbt */
+    font-family: sans-serif;
+    /* Es gibt keinen Nicht-Element Inhalt der gefärbt werden kann. */
+    color: hsl(240 100% 50%);
+    /* box properties werden nicht vererbt */
+    background: hsl(75, 32%, 56%);
+}
+
+p{
+    font-family: monospace;
+}
+
+strong{
+    /* font-family ist vererbt, aber font-weight nicht */
+    font-weight: normal;
+}
+
+h1{
+    color: hsl(0 0% 100%);
+}
+
+
+/* Klassenselektor */
+.head-line{
+    color: hsl(0 0% 0%);
+    text-decoration: underline;
+}
+
+/* Id Selektor */
+#syntax h2{
+    background: hsl(0 0% 90%);
+}
+
+/* Attribut Selektor */
+[title]{
+    font-style: italic;
+}
+/* 
+0   0               0
+id  Klasse          Element
+    Attribut        Pseuoelement
+    Pseudoklasse */
+
+/* Pseudoklasse */
+p:hover{
+    background: hsl(0 0% 100%);
+}
+/* Achtung! Leerstelle heißt Nachfahren. */
+
+/* Pseudoelemente */
+::before{
+    content: "!";
+    color: hsl(240 100% 50%);
+}
+
+p::selection{
+    color: hsl(60 100% 50%);
+}

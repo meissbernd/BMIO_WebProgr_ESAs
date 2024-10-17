@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="utf-8">
+        <title>HTML Formulare</title>
+    </head>
+    <body>
+        <h1>HTML5 Formulare</h1>
+        <!-- Möglicherweise noch eine Navigation einfügen. -->
+        <!-- Wenn weiterer Content vorhanden ist, dann eine main einfügen. -->
+        <article>
+            <h2>Formulare benutzbar aufbauen</h2>
+            <p>Formulare sollten immer so aufgebaut sein, daß sie gut bedienbar für den Anwender sind
+                und gut wartbar für den Entwickler. 
+            </p>
+            <p>Der Anwender benötigt klare Angaben zum Ausfüllen und
+                das Formular muß eine möglichst geringe Fehlertoleranz aufweisen.
+                Hierbei helfen die Attribute. Genauere Angaben kann man über das Attribut <code>pattern</code> festlegen.
+                Es entspricht einem regulären Ausdruck, der später auch mit JavaScript genutzt werden kann.
+            </p>
+            <p>Beschriftungen in Form von <code>&lt;label&gt;</code> sind deshalb unerläßlich.
+                Damit die Beschriftung maschinenlesbar eindeutig einem Formularfeld zugeordnet ist, 
+                werden die beiden Elemente über die Attribute <code>for</code> und <code>id</code> miteinander verbunden.
+            </p>
+            <p>In ein Formular gehören grundsätzlich nur Formularelemente.
+                Ausnahmen bestätigen die Regel. 
+            </p>
+            <p>Mehr Informationen findet man unter <a href="https://developer.mozilla.org/en-US/docs/Learn/Forms" target="_blank">MDN</a>.</p>
+        </article>
+        <div>
+            <h2 id="form-heading">Helfen Sie uns, Sie kennenzulernen!</h2>
+            <form action="form.html"
+                    method="get"
+                    aria-labelledby="form-heading">
+                <!-- Bereiche im Formular mit fieldset -->
+                <fieldset aria-labelledby="contact">
+                    <legend id="contact">Persönliche Daten</legend>
+                    <label for="fn">Vorname</label>
+                    <input id="fn" type="text" name="fn" placeholder="Max">
+                    <br>
+                    <label for="ln">Nachname</label>
+                    <input id="ln" type="text" name="ln" placeholder="Mustermann"
+                    pattern="^[A-Z,Ü,Ä,Ö]{1}[a-z,ü,ä,ö,ß]{1,}" aria-label="letters-only">
+                    <br>
+                    <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/pattern
+                     https://www.mediaevent.de/html/input-pattern.html -->
+                    <label for="age">Alter</label>
+                    <input id="age" type="number" min="18" name="age">
+                    <br>
+                    <label for="mail">E-Mail</label>
+                    <input id="mail" type="email" name="mail">
+                </fieldset>
+                <fieldset>
+                    <legend>Wählen Sie eine oder mehrere Interessen.</legend>
+                    <!-- Mehrfachauswahl mit checkbox 
+                        Einfachauswahl mit radio-->
+                     <label for="html">HTML</label>
+                     <input id="html" type="checkbox" name="interest[]" value="html">
+                     <label for="css">CSS</label>
+                     <input id="css" type="checkbox" name="interest[]" value="css">
+                     <label for="js">JavaScript</label>
+                     <input id="js" type="checkbox" name="interest[]" value="js">
+                </fieldset>
+                <fieldset>
+                    <legend>Welche Sprachen beherrschen Sie?</legend>
+                    <label for="lang">Welche Sprache?</label>
+                    <select id="lang" name="language">
+                        <option value="de">Deutsch</option>
+                        <option value="en">Englisch</option>
+                        <option value="fr">Französisch</option>
+                    </select>
+                </fieldset>
+                <fieldset>
+                    <legend>Ihre Meinung?</legend>
+                    <label for="message">Wie finden Sie uns?</label>
+                    <textarea id="message">Ihre Meinung ...</textarea>
+                </fieldset>
+                <input type="submit">
+                <input type="reset">
+            </form>
+        </div>      
+    </body>
+</html>
