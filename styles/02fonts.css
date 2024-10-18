@@ -1,0 +1,21 @@
+:root{
+    /* Ausgangsgröße als Bezug aller Fonts */
+    font-size: 12px;
+    font-family: sans-serif;
+    line-height: 1.5;
+}
+
+/* best practise für wartbare relative Schriftgrößen */
+h1{
+    font-size: 2rem;
+}
+h2{
+    font-size: 1.7rem;
+}
+h3{
+    font-size: 1.5rem;
+}
+
+main, nav, article,p,ul{
+    font-size: 1.4rem;
+}
