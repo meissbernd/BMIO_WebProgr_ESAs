@@ -1,0 +1,74 @@
+*,
+*::after,
+*::before{
+	box-sizing: border-box;
+}
+
+html,
+body{
+	font-family: sans-serif;
+	font-size: 16px;
+}
+
+/*Alle externen Resourcen sollten grundsätzlich auf die Größe des parent beschränkt sein, damit die Medien nicht größer als der viewport sind und kein horizontales scrollen nötig ist.*/
+img{
+	max-width: 100%;
+}
+
+/*Kommentieren Sie die folgenden Regeln nacheinander ein und erklären Sie sich, was passiert.*/
+
+/*img und figcaption stehen untereinander und füllen den gesamten figure-Container aus. figcaption hat einen transparenten Hintergrund und nimmt die Farbe des figure-Containers an.*/
+figure{
+	position: relative;
+	background: hsla(0,0%,70%,1)
+}
+
+figcaption{
+	background: hsla(0,100%,60%,.5);
+	
+	/*Das Element ist auf seine tatsächlich benötigte Größe zusammengeschrumpft.*/
+	/*position: absolute;	*/
+	
+	/*Jetzt wird die figcaption durch Positionierungswerte positioniert.*/
+	/*
+	left: 0;
+	right: 0;
+	bottom: 0;
+	*/
+	/*left und right bzw. top und bottom schließen sich nicht gegenseitig aus. So kann man zwei Elemente passgenau übereinander legen.*/
+	/*top: 0;*/
+}
+
+/*img ist ein ersetztes Inline-Element. Es füllt deshalb den parent nicht in der gesamten Höhe aus. Die folgende Regel macht es zum Block-Element.*/
+/*
+img{
+	display: block;
+}
+*/
+/*Jetzt entfernen Sie position:relative aus dem figure-Container und schauen Sie wie der Bezugspunkt sich am viewport ausrichtet, weil kein Bezugselement mehr gegeben ist. Oder positionieren Sie den body relativ und beobachten Sie den veränderten Bezugspunkt.*/
+
+
+/*Erklärungen zum Flex-Container und zum JavaScript folgen später. Hier geht es ausschließlich um die Positionierung des div über den gesamten body.
+Entkommentieren Sie die folgenden Regeln und klicken Sie in den viewport. Durch Neuladen können Sie die Aktion wiederholen.*/
+
+/*
+body{
+	position: relative;
+}
+
+div{
+	background: hsla(134,100%,30%,.9);
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.hide{
+	display: none;
+}
+*/

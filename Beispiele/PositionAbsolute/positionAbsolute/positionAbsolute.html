@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="utf-8">
+		<title>position: absolute</title>
+		<link rel="stylesheet" href="positionAbsolute.css">
+		<script src="positionAbsolute.js" async defer></script>
+	</head>
+	<body>
+		<h1>position: absolute</h1>
+		<article>
+			<h2>Positionierung mit <code>position</code></h2>
+			<p>
+			Für die Positionierung eines Elementes sind immer zwei properties zuständig:<br>
+			<code>position: static | relative | absolute | fixed | static</code> für die <b>Positionierungsart</b> und<br>
+			<code>top | right | bottom | left </code> mit einer Längenmaßeinheit für den <b>Positionierungswert</b>.
+			</p>
+			<p>Über <code>position: absolute</code> wird das Element aus dem Textfluß entfernt. Dabei passieren zwei Dinge: das Element schrumpft auf den tatsächlichen minimal benötigten Raum ein und andere Elemente sehen es nicht mehr. D.h. Elternelemente, die nur absolute positionierte Elemente enthalten sind nun leer.</p>
+			<p>Alle Positionierungswerte haben den nächsten Vorfahren, der nicht <code>static</code> ist als Bezugspunkt. I.d.R. wird dies ein <code>relative</code> positioniertes Element sein, aber auch alle anderen Positionierungsarten sind möglich.</p>
+		</article>
+			<article>
+			<h2>use cases</h2>
+			<p>
+			Typische use cases sind Abbildungsbeschriftungen oder auch viewport-füllende Elemente, für Werbungszwecke.
+			</p>
+			<figure>
+				<img src="shiro-yamamoto-Cp1LK6zNEZ8-unsplash.jpg" alt="shiro-yamamoto-Cp1LK6zNEZ8-unsplash.jpg">
+				<figcaption>Tomaten sind gesund</figcaption>
+			</figure>
+			<div>
+				<code>position:absolute</code>	
+			</div>
+		</article>
+	</body>
+</html>
