@@ -1,0 +1,28 @@
+/* guter Style: alle Elemente*/
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+#syntax p{
+    /* default ist box-sizing content-box */
+    background: hsl(0 0% 90%);
+    width: 50%;
+    padding: 2.5%;
+    border: 5px solid;
+    margin: 2.5%;
+}
+
+
+/* Sollte für alle Elemente gleich sein (siehe oben, Universalselektor)
+ hier nur aus didaktischen Gründen */
+#syntax p:first-of-type{
+    /* default ist box-sizing content-box */
+    box-sizing: content-box;
+}
+
+#syntax p:last-of-type{
+    /* default ist box-sizing content-box */
+    box-sizing: border-box;
+}
