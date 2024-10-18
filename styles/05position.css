@@ -1,0 +1,68 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+body{
+    width: 90%;
+    margin:auto;
+}
+
+img{
+    max-width: 100%;
+}
+
+/* Container für die Positionierung sichtbar machen */
+article, figure, figcaption, img{
+    border: 1px solid;
+}
+
+figure{
+    background: hsla(240,70%,95%)
+}
+
+img{
+    filter: sepia(1) opacity(.7);
+}
+
+/* position */
+/*img{*/
+/*    position: relative;*/
+/*    !*top: 5em;*!*/
+/*    bottom: 5em;*/
+/*    z-index: -1; !* Ebene nach hinten verschieben*!*/
+/*}*/
+
+/* Bezug für img absolute */
+article{
+    position: relative;
+}
+
+/*img{*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*}*/
+
+/*img{*/
+/*    position: fixed;*/
+/*    top: 0;
+       right:0
+ */
+/*
+/*}*/
+
+/* use case sticky */
+nav{
+    background: hsla(0,0%,90%);
+    /*position: fixed;*/
+    /*top:0;*/
+    /*left: 0;*/
+    /*right: 0;*/
+}
+
+/* besser */
+header{
+    background: hsla(0,0%,100%);
+    position: sticky;
+    top:0;
+}

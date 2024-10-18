@@ -1,0 +1,37 @@
+/* box-sizing
+paddings margins egalisieren (z.B. alle 0)
+*/
+
+/*
+:root
+- Variablen
+- Grundgröße fonts
+- Font-family
+- line-height
+
+- scroll-behaviour
+*/
+
+/*
+Für Seiten mit wenig Inhalt, z.B. Google
+body{min-height: 100vh}
+*/
+
+/*
+relativer Schriftenaufbau (02fonts.css)
+max-width in ch für Texte auf breiten Viewports
+*/
+
+/*
+externe Ressourcen in Breite begrenzen
+z.B. img
+*/
+
+/*
+Border für Tables
+*/
+
+/*
+für Verlinkungen cursor als solchen sichtbar machen
+cursor:pointer
+*/
