@@ -26,3 +26,21 @@
     /* default ist box-sizing content-box */
     box-sizing: border-box;
 }
+
+/* ******************************************** */
+/* CSS Funktionen, hsl, rgb, var, ... */
+h1{
+    /* clamp(min, preferred, max)*/
+    font-size: clamp(2rem, 4vw, 4.5rem);
+}
+
+#structure{
+    border: 1px solid hsl(0 100% 50%);
+    /* Leerstellen nicht vergessen
+    Einheiten sind mischbar
+    Berechnungen ausführen
+     */
+    width: calc(100% - (2 * 5em));
+    margin: auto;
+
+}
