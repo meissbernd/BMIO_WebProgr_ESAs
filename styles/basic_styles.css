@@ -37,17 +37,21 @@ body {
 /* relativer Schriftenaufbau */
 h1 {
     font-size: 2rem;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
 }
 
 h2 {
     font-size: 1.7rem;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
 }
 
 h3 {
     font-size: 1.5rem;
 }
 
-main, nav, article, p, ul {
+main, nav, article, p, ul, form {
     font-size: 1.4rem;
 }
 
@@ -94,7 +98,7 @@ th, td {
 }
 
 /* ID-Selektor */
-#championship_table {
+#fn, #ln, #phone, #mail {
     font-family: monospace;
 }
 
@@ -109,14 +113,14 @@ article p {
 }
 
 /* Kind-Selektor */
-/*ul > li {*/
-/*    list-style-type: none;*/
-/*}*/
+ul > li {
+    list-style-type: circle;
+}
 
 /* Nachbar-Selektor */
-/*h1 + p {*/
-/*    margin-top: 0;*/
-/*}*/
+p + table {
+    margin-top: 1em;
+}
 
 /* Pseudoklassen */
 * a:hover {
@@ -129,5 +133,10 @@ p::first-letter {
     margin-right: 0.1rem
 }
 
-/*margin: auto;*/
+ul {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    padding-left: 1.5em;
+}
+
 
