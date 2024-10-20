@@ -1,11 +1,13 @@
-/* Box-sizing Methode: border-box (für alle Elemente) */
+/*
+Margin und Padding auf Null,
+Box-sizing Methode: border-box (für alle Elemente)
+*/
 *, *:before, *:after {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
-/*
-evtl. paddings und margins egalisieren oder entfernen.
-*/
 
 /* 
 :root
