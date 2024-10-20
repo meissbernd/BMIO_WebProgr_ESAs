@@ -12,6 +12,9 @@ Box-sizing Methode: border-box (für alle Elemente)
     /* Variablen */
     --basic-font-size: 12px;
     --max-text-width: 80ch; /* empfohlen: 60 .. 80 */
+    --main-color: hsl(101, 100%, 42%);
+    --second-color: hsl(0, 0%, 0%);
+    --accent-color: hsl(101, 82%, 81%);;
 
     /* Basic Settings der Schrift */
     font-size: var(--basic-font-size);
@@ -20,7 +23,6 @@ Box-sizing Methode: border-box (für alle Elemente)
 
     scroll-behavior: smooth;
 }
-
 
 /* Body auf volle Viewport Höhe (Seiten mit sehr wenig Inhalt) */
 body {
@@ -55,12 +57,28 @@ img, picture, video {
 }
 
 
-/* 
-border für tables
-*/
+/* Table Borders */
+th, td {
+    border: 1px solid #ccc; /* Dünner, grauer Rahmen für Zellen */
+}
+
 
 /* Cursor für Verlinkungen anpassen */
 a {
     cursor: pointer;
 }
 
+/* Spezielle Einstellungen */
+
+body {
+    background-color: var(--accent-color);
+}
+
+table {
+    background: var(--main-color);
+    border-collapse: collapse;
+}
+
+#championship_table {
+    font-family: monospace;
+}
