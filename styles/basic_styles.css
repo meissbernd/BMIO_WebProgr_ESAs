@@ -8,14 +8,13 @@ Box-sizing Methode: border-box (für alle Elemente)
     box-sizing: border-box;
 }
 
-
-/* 
-:root
-- mögliche Variablen
-*/
 :root {
+    /* Variablen */
+    --basic-font-size: 12px;
+    --max-text-width: 80ch; /* empfohlen: 60 .. 80 */
+
     /* Basic Settings der Schrift */
-    font-size: 16px;
+    font-size: var(--basic-font-size);
     font-family: sans-serif;
     line-height: 1.5;
 
@@ -23,15 +22,32 @@ Box-sizing Methode: border-box (für alle Elemente)
 }
 
 
-/*
-Für Seiten mit sehr wenig Inhalt in der Höhe
-body{min-height: 100vh;
-*/
+/* Body auf volle Viewport Höhe (Seiten mit sehr wenig Inhalt) */
+body {
+    min-height: 100vh;
+}
 
-/* 
-relativer Schriftenaufbau, s. 02fonts.css
-max-width in ch für Texte auf breiten viewports
-*/
+/* relativer Schriftenaufbau */
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.7rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+main, nav, article, p, ul {
+    font-size: 1.4rem;
+}
+
+/* max-width in ch für Texte auf breiten viewports */
+p {
+    max-width: var(--max-text-width);
+}
 
 /* Breite externer Ressourcen: max Elterncontainer */
 img, picture, video {
@@ -43,7 +59,8 @@ img, picture, video {
 border für tables
 */
 
-/* 
-für Verlinkungen cursor als solchen sichtbar machen
-cursor: pointer
-*/
+/* Cursor für Verlinkungen anpassen */
+a {
+    cursor: pointer;
+}
+
