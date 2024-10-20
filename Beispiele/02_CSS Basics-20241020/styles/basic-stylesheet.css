@@ -1,0 +1,38 @@
+/* 
+box-sizing borderbox für alle Elemente festlegen 
+evtl. paddings und margins egalisieren oder entfernen.
+*/
+
+/* 
+:root
+- mögliche Variablen
+- Grundgröße fonts
+- font-family
+- line-height
+
+- scroll-behaviour
+*/
+
+/* 
+Für Seiten mit sehr wenig Inhalt in der Höhe
+body{min-height: 100vh;
+*/
+
+/* 
+relativer Schriftenaufbau, s. 02fonts.css
+max-width in ch für Texte auf breiten viewports
+*/
+
+/* 
+Externe Resourcen in der Breite begrenzen
+z.B. img
+*/
+
+/* 
+border für tables
+*/
+
+/* 
+für Verlinkungen cursor als solchen sichtbar machen
+cursor: pointer
+*/

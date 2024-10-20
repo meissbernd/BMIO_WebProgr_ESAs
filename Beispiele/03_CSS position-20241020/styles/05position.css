@@ -1,0 +1,78 @@
+*,
+*::after,
+*::before{
+    box-sizing: border-box;
+}
+
+body{
+    width: 90%;
+    margin: auto;
+}
+
+img{
+    max-width: 100%;
+}
+
+/* Container für die Positionierung sichtbar machen. */
+article,
+figure,
+figcaption,
+img{
+    border: 1px solid;
+}
+
+figure{
+    background: hsl(240 70% 95%);
+}
+
+img{
+    filter: sepia(1) opacity(.7);
+}
+
+/* position */
+/* img{
+    position: relative;
+    bottom: 5em;
+    z-index: -1;
+} */
+
+/* Bezugspunkt für img absolute */
+/* article{
+    position: relative;
+}
+
+img{
+    position: absolute;
+    top: 0;
+    left: 0;
+} */
+
+/* img{
+    position: fixed;
+    top: 0;
+    right: 0;
+} */
+
+/* use case sticky */
+nav{
+    background: hsl(0 0% 90%);
+    /* position: fixed;
+    top: 0;
+    left:0;
+    right: 0; */
+}
+
+/* besser */
+header{
+    background:hsl(0 0% 100%);
+    position: sticky;
+    top: 0;
+}
+
+/* Kleine Besonderheit:
+Durch den filter oben img liegt das Bild auf der z-Ebene vorn. 
+Entfernen Sie ihn mit der folgenden Regel. */
+
+/* img{
+    filter: none;
+} */

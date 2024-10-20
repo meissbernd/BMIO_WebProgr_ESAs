@@ -1,0 +1,95 @@
+/* 
+Variablen müssen in einer Regel vereinbart werden
+globale Variablen werden in :root oder html deklariert*/
+
+:root{
+    /* Bezeichner sollten nie Werte sein, hier z.B. "red".
+    Variablen Deklaration */
+    --main-color: hsl(60 0% 90%);
+    --second-color: hsl(200 100% 50%);
+    --accent-color: hsl(0 100% 50%);
+
+    --basic-font-size: 16px;
+    --max-text-width: 60ch;
+
+    font-family: sans-serif;
+    line-height: 1.5;
+    font-size: var(--basic-font-size);
+}
+
+article{
+    /* Variablen Aufruf */
+    background: var(--main-color);
+}
+
+code,
+a{
+    color: var(--accent-color);
+}
+
+p{
+    max-width: var(--max-text-width);
+}
+
+/* Bilder und andere externe Resourcen sollten
+auf die Breite des Elterncontainers begrenzt werden. */
+img,
+picture,
+video{
+    max-width: 100%;
+}
+
+/* Skalierbare font-size mit vw auf desktop
+vh für mobile
+viewport Einheiten nur für Statement Schriften! */
+h1{
+    font-size: 8vw;
+}
+
+/* Hier käme der fonts-Aufbau aus 02fonts.css hin. */
+
+
+/* box properties */
+#syntax{
+    width: 70%;
+    padding: 2.5%;
+    border: 1px solid;
+    margin: 2.5%;
+    /* 
+    2% alle vier Seiten
+    2% 5% oben-unten links-rechts
+    2% 5% 10% oben links-rechts unten
+    2% 5% 10% 8% oben rechts unten links
+    */
+}
+
+/* Ausrichten mit margin für Blockelemente */
+#selector{
+    width: 50%;
+    /* zentrieren */
+    /* margin: auto; */
+    /* nach rechts platzieren */
+    margin-left: auto;
+}
+
+/* Bild mit margin platzieren 
+img sind ersetzte inline Elemente
+um mit margin zu platzieren 
+müssen wir es zum Blockelement machen.*/
+img{
+    width:70%;
+    display: block;
+    margin: auto;
+}
+
+/* inline Elemente */
+strong{
+    /* keine width */
+    width: 100%;
+    /* alle Seiten, aber Überlappungen */
+    padding: 5%;
+    /* alle Seiten */
+    border: 1px solid;
+    /* nur horizontal */
+    margin: 15%;
+}
