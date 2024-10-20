@@ -1,3 +1,5 @@
+/* General Settings */
+
 /*
 Margin und Padding auf Null,
 Box-sizing Methode: border-box (für alle Elemente)
@@ -14,7 +16,8 @@ Box-sizing Methode: border-box (für alle Elemente)
     --max-text-width: 80ch; /* empfohlen: 60 .. 80 */
     --main-color: hsl(101, 100%, 42%);
     --second-color: hsl(0, 0%, 0%);
-    --accent-color: hsl(101, 82%, 81%);;
+    --accent-color: hsl(101, 82%, 81%);
+    --table-frame-color: hsl(0 0% 80%);
 
     /* Basic Settings der Schrift */
     font-size: var(--basic-font-size);
@@ -59,7 +62,7 @@ img, picture, video {
 
 /* Table Borders */
 th, td {
-    border: 1px solid #ccc; /* Dünner, grauer Rahmen für Zellen */
+    border: 1px solid
 }
 
 
@@ -68,6 +71,7 @@ a {
     cursor: pointer;
 }
 
+/* ***************************************************************************
 /* Spezielle Einstellungen */
 
 body {
@@ -77,6 +81,14 @@ body {
 table {
     background: var(--main-color);
     border-collapse: collapse;
+}
+
+th, td {
+    border-color: var(--table-frame-color)
+}
+
+.underline {
+    text-decoration: underline;
 }
 
 #championship_table {
