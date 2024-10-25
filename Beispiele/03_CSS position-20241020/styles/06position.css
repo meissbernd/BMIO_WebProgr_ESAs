@@ -1,0 +1,85 @@
+*,
+*::after,
+*::before{
+    box-sizing: border-box;
+}
+
+/* 
+    use case position
+    Verwenden Sie das position property immer nur kleinteilig 
+    und nicht für Gesamtlayout der Webseite.
+    Z.B. nur für die Navigation.
+    Oder nur für die figure.
+*/
+
+/* figure Container als Bezugspunkt für die Kinder img und figcaption,
+falls diese absolute positioniert werden. 
+Probieren Sie die folgenden Regeln nach und nach aus 
+und verfolgen Sie das Ergebnis.
+*/
+figure{
+    position: relative;
+
+    /* visuelle Kennzeichnung */
+    border: 1px solid;
+    background: hsl(240 100% 95%);
+    width: min-content;
+    /* probieren Sie auch max-content und schauen Sie auf den Unterschied. */
+}
+
+img{
+    display: block;
+}
+
+figcaption{
+    position: absolute;
+    background: hsl(90 100% 50% / .7);
+
+    bottom: 0;
+    top: 0;
+    left: 50%;
+    /* Probieren Sie alle Möglichkeiten von top, bottom, left und right aus.
+    Der Rahmen um das Bild ist nicht vom img,
+    sondern von der figure.
+    Wenn Sie die figure verbreitern mit der widht,
+    dann können Sie das sehen. */
+}
+
+/* use case Navigation mit js,
+js besprechen wir später im Modul. */
+
+/* Den header müssen wir ansprechen, weil der header direkt 
+im body liegt.
+Wenn man die nav direkt anspricht, 
+dann würde sie im header fixiert werden.
+Da der header aber aus dem Bildschirm nach oben aus dem viewport
+heraus scrollt, können wir das nicht sehen. */
+header{
+    position: sticky;
+    top: 0;
+    background: hsl(0 0% 90%);
+}
+
+figure{
+    z-index: -1;
+}
+
+/* Wenn man jetzt auf die Verlinkungen klickt,
+dann springen Sie zu hoch und werden teils vom header verdeckt.
+Dafür könnte man ein scroll-padding-top vergeben. */
+
+/* 
+:root{
+    scroll-padding-top: 5em;
+} 
+*/
+
+/* Die Höhe müsste man aber schätzen.
+Besser geht es mit js.
+Das machen wir später,
+aber ich lade es hier hoch und binde es ein. */
+
+:root{
+    scroll-padding-top: var(--scroll-padding, 100px);
+    scroll-behavior: smooth;
+}
