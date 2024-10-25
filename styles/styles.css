@@ -139,4 +139,18 @@ ul {
     padding-left: 1.5em;
 }
 
+img {
+    display: block; /* sonst standardmäßig als inline */
+}
+
+figure {
+    position: relative;
+}
+
+figcaption {
+    position: absolute;
+    background: hsla(343, 100%, 50%, 0.7);
+    bottom: 1%;
+    left: 1%
+}
 
