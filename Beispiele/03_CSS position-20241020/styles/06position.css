@@ -47,41 +47,42 @@ figcaption {
     dann können Sie das sehen. */
 }
 
-/*!* use case Navigation mit js,*/
-/*js besprechen wir später im Modul. *!*/
+/* use case Navigation mit js,
+js besprechen wir später im Modul. */
 
-/*!* Den header müssen wir ansprechen, weil der header direkt */
-/*im body liegt.*/
-/*Wenn man die nav direkt anspricht, */
-/*dann würde sie im header fixiert werden.*/
-/*Da der header aber aus dem Bildschirm nach oben aus dem viewport*/
-/*heraus scrollt, können wir das nicht sehen. *!*/
-/*header{*/
-/*    position: sticky;*/
-/*    top: 0;*/
-/*    background: hsl(0 0% 90%);*/
-/*}*/
+/* Den header müssen wir ansprechen, weil der header direkt
+im body liegt.
+Wenn man die nav direkt anspricht,
+dann würde sie im header fixiert werden.
+Da der header aber aus dem Bildschirm nach oben aus dem viewport
+heraus scrollt, können wir das nicht sehen. */
+header {
+    position: sticky;
+    top: 0;
+    background: hsl(0 0% 90%);
+}
 
-/*figure{*/
-/*    z-index: -1;*/
-/*}*/
+figure {
+    z-index: -1;
+}
 
-/*!* Wenn man jetzt auf die Verlinkungen klickt,*/
-/*dann springen Sie zu hoch und werden teils vom header verdeckt.*/
-/*Dafür könnte man ein scroll-padding-top vergeben. *!*/
+/* Wenn man jetzt auf die Verlinkungen klickt,
+dann springen Sie zu hoch und werden teils vom header verdeckt.
+Dafür könnte man ein scroll-padding-top vergeben. */
 
-/*!* */
-/*:root{*/
-/*    scroll-padding-top: 5em;*/
-/*} */
-/**!*/
+/*
+:root{
+    scroll-padding-top: 5em;
+}
+*/
 
-/*!* Die Höhe müsste man aber schätzen.*/
-/*Besser geht es mit js.*/
-/*Das machen wir später,*/
-/*aber ich lade es hier hoch und binde es ein. *!*/
 
-/*:root{*/
-/*    scroll-padding-top: var(--scroll-padding, 100px);*/
-/*    scroll-behavior: smooth;*/
-/*}*/
+/* Die Höhe müsste man aber schätzen.
+Besser geht es mit js.
+Das machen wir später,
+aber ich lade es hier hoch und binde es ein. */
+
+:root {
+    scroll-padding-top: var(--scroll-padding, 100px);
+    scroll-behavior: smooth;
+}
