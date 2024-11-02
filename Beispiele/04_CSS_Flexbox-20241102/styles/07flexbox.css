@@ -1,0 +1,147 @@
+*,
+*::after,
+*::before{
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root{
+    font-family: sans-serif;
+    line-height: 1.3;
+}
+
+/* relativer fonts Aufbau hier */
+
+/* Flexbox */
+
+/* Flexbox Container */
+#expContainer > div{
+    border: 1px solid;
+    /* height i.d.R. nicht setzen,
+    hier nur zum beobachten der properties */
+    height: 15em;
+    /* Container setzen */
+    display: flex;
+    /* Achsen setzen */
+    flex-flow: row wrap;
+    /* die folgenden properties
+    richten an der Achse aus row oder column */
+    /* Ausrichtung an der Hauptachse */
+    justify-content: space-between;
+    /* Ausrichtung an der Kreuzachse */
+    align-items: center;
+    /* Ausrichtung an der Kreuzachse,
+    für mehrzeilige Container,
+    wrap muß gesetzt sein */
+    align-content: center;
+}
+
+#expContainer > div > div{
+    background: hsl(0 0% 90%);
+}
+
+/* ********************************** */
+/* Flexcontainer */
+#expItem > div{
+    border: 1px solid;
+    /* height sonst nicht benutzen! */
+    height: 12em;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+/* Flex Items */
+#expItem > div > div{
+    background: hsl(0 0% 90%);
+    margin: 2%;
+}
+
+#expItem > div > div:last-of-type{
+    align-self: flex-end;
+    order: -1;
+}
+
+#expItem > div > div:first-of-type{
+    align-self: center;
+    order: 2;
+}
+
+/* Flex Container */
+#item > ul{
+    border: 1px hsl(0 100% 30%) dashed;
+    list-style: none;
+    padding: 0;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+/* Flex Items */
+#item li{
+    background: hsl(0 0% 90%);
+    margin: 1%;
+    flex: 1 0 5em;
+    /* flex: grow shrink basis */
+}
+
+#item li:last-of-type{
+    background: hsl(0 50% 90%);
+    flex: 2 0 5em;
+}
+
+/* Use Case für flex: grow shrink basis */
+/* Intrinsic Responsive Web Design (RWD) */
+nav ul{
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: stretch;
+}
+
+nav li{
+    background: hsl(0 0% 90%);
+    flex: 1 0 12em;
+    text-align: center;
+    margin: 1%;
+}
+
+/* Flexbox und ersetzte Inline Elemente, hier Bilder.
+Probieren Sie folgende Regeln Zeile für Zeile aus. */
+#sunshine div{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: stretch;
+}
+
+#sunshine > div > *{
+    border: 1px dashed hsl(240 100% 80%);
+    padding: 1%;
+    margin: 1%;
+    /* Sieht schon ganz gut aus.
+    Nur leider sind die Bilder unterschiedlich breit. */
+}
+
+/* folgendes sollte klappen */
+#sunshine img{
+    flex: 1 0 10em;
+    /* hm ... leider klappt das nicht */
+    width: 12em;
+    /* na bitte! 
+    Aber leider ist es jetzt eine feste Größe, wachsen und schrumpfen geht nicht
+    flex-basis überschreibt übrigens width. */
+    min-width: 0;
+    /* min-width für img ist per default auf auto gesetzt und überschreibt je nach Größe width.
+    So klappt es auf jeden Fall! */
+    /* Für die Höhe könnte man sich jetzt nochmal was überlegen. */
+    object-fit: cover;
+    /* So ist es besser. Probieren Sie alle Auflösungen aus :) */
+}
+
+#sunshine p{
+    flex: 0 1 60ch;
+}
