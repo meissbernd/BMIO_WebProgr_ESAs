@@ -86,92 +86,56 @@ table {
     border-collapse: collapse;
 }
 
-/* Typ-Selektor */
-th, td {
-    border-color: var(--table-frame-color)
+/* Flexbox */
+/* Navbar mit Responsive Web Design */
+/* Flexbox-Element */
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: flex-start;
 }
 
-/* Klassen-Selektor */
-.underline {
-    text-decoration: underline;
+/* Flexbox-Items */
+nav li {
+    /*background: hsl(0 0% 90%);*/
+    flex: 1 0 12em; /* flex: grow shrink basis */
+    text-align: left;
+    margin: 1%;
 }
 
-/* ID-Selektor */
-#fn, #ln, #phone, #mail {
-    font-family: monospace;
+nav li:last-of-type {
+    order: -1;
 }
 
-/* Attribute-Selektor */
-input[type="submit"], input[type="reset"] {
-    cursor: pointer;
+/* Main mit Responsive Web Design */
+/* Flexbox-Element */
+main {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
 }
 
-/* Nachfahren-Selektor */
-article p {
-    text-align: justify;
+/* Flexbox-Items */
+main article {
+    flex: 1 1 12em; /* flex: grow shrink basis */
+    margin: 1%;
+    /*background: hsl(0 0% 90%);*/
+    border: 1px dotted var(--second-color);
+    padding: 1%;
 }
 
-/* Kind-Selektor */
-ul > li {
-    list-style-type: circle;
+#siegel_kinderschutz {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    text-align: left;
 }
 
-/* Nachbar-Selektor */
-p + table {
-    margin-top: 1em;
-}
-
-/* Pseudoklassen */
-* a:hover {
-    color: var(--signal_color);
-}
-
-/* Pseudoelemente */
-p::first-letter {
-    font-weight: bold;
-    margin-right: 0.1rem
-}
-
-ul {
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
-    padding-left: 1.5em;
-}
-
-img {
-    display: block; /* sonst standardmäßig als inline */
-}
-
-figure {
-    position: relative;
-}
-
-/* Abbildungsbeschriftung innerhalb der Figure positionieren */
-figcaption {
-    position: absolute;
-    background: hsla(343, 100%, 50%, 0.7);
-    bottom: 1%;
-    left: 1%
-}
-
-/* Header mit NavBar immer am oberen Rand anzeigen */
-header {
-    position: sticky;
-    top: 0;
-    background: var(--main-color);
-    z-index: 1000; /* hoher Wert, um immer im Vordergrund zu bleiben */
-}
-
-/* SV05 Wappen */
-.logo_sv05 {
-    width: 10%; /* % des übergeordneten Elements */
-    height: auto; /* proportional */
-    position: absolute; /* innerhalb des übergeordneten Elements (nav) positionieren */
-    top: 1px;
-    right: 1px;
-}
-
-/* Nicht über Header hinaus scrollen (--scroll-padding wird in script gesetzt)  */
-:root {
-    scroll-padding-top: var(--scroll-padding, 100px);
+#siegel_kinderschutz p, figure {
+    /*background: hsl(0 0% 90%);*/
+    margin: 1%;
 }
