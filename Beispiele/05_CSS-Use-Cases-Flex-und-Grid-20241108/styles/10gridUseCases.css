@@ -1,0 +1,96 @@
+*,
+*::after,
+*::before{
+    box-sizing: border-box;
+}
+
+:root{
+    font-family: sans-serif;
+}
+
+div > div{
+    background: hsl(0 0% 80%);
+    margin: 1%;
+    padding: 1%;
+    text-align: center;
+}
+
+/* Zentrierung horizontal und vertikal */
+#center{
+    background: hsl(240 100% 50%);
+    height: 20vh;
+    display: grid;
+    place-items: center;
+}
+
+#center > div{
+    width: max-content;
+}
+
+/* RWD Navigation */
+#gridRWD{
+    display:  grid;
+    grid-template-columns: repeat(auto-fit,minmax(24em,1fr));
+}
+
+/* sidebar  */
+#sidebar{
+    min-height: 30vh;
+    display: grid;
+    grid-template-columns: minmax(150px, 25%) 1fr;
+    /* Versatz beseitigen mit margin im grid item*/
+    gap: 5px;
+}
+#sidebar div{
+    margin: 0;
+}
+
+/* geschachtelter grid container, um den Inhalt zu zentrieren */
+#sidebar div{
+    display: grid;
+    place-items: center;
+}
+
+/* vertical stack */
+#verticalStackGrid{
+    height: 30vh;
+    display: grid;
+    grid-template-rows: auto  1fr auto;
+}
+
+/* individuelles grid */
+#classicGrid{
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    grid-template-rows: repeat(5,1fr);
+}
+
+/* items platzieren */
+#eins{
+    grid-column: 1 / 7;
+}
+
+#zwei{
+    grid-column: 1 /4;
+}
+
+#drei{
+    background: hsla(60, 100%, 50%, .5);
+    grid-row: 3 / 5;
+    grid-column: 2 / 6;
+}
+
+#vier{
+    grid-row: 2 / 6;
+    grid-column: 5 / 6;
+    background: hsla(240, 100%, 50%, .3);
+    /* Inhalt zentrieren */
+    display: grid;
+    place-items: center;
+}
+
+@media (max-width: 30em){
+    #classicGrid{
+        display: block
+    }
+}

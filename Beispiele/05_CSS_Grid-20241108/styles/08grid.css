@@ -1,0 +1,84 @@
+*,
+*::after,
+*::before{
+    box-sizing: border-box;
+}
+
+:root{
+    font-family: sans-serif;
+    --background: hsl(240 0% 90%);
+}
+
+ul{
+    list-style: none;
+    padding: 0;
+}
+
+article,
+footer,
+li{
+    background: var(--background);
+}
+
+nav li{
+    text-align: center;
+}
+
+nav ul{
+    display: grid;
+    gap: 5px;
+
+    /* Grid Template bauen */
+    /* grid-template-columns: 10% 20% 30%;
+    grid-template-columns: 20% 40% 30% 100px;
+    grid-template-columns: 25% 25% 25% 25%;
+    grid-template-columns: repeat(4, 25%);
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3,1fr) 50px;
+    grid-template-columns: repeat(2, 1fr 3fr); */
+
+    /* grid vs flex */
+    /* display: flex; */
+    /* display: grid; */
+    /* grid-auto-flow: column; */
+}
+
+/* RWD mit grid */
+/* RAM: repeat(), auto-fit, minmax() */
+nav ul{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
+}
+
+/* benannte area */
+main{
+    display: grid;
+    gap: 5px;
+    grid-template-areas: 
+        "head       head"
+        "cont1      cont2"
+        ".          cont3"
+        "foot       foot"
+    ;
+}
+
+/* grid items platzieren */
+#grid{
+    grid-area: head;
+}
+
+#gridContainer{
+    grid-area: cont2;
+}
+
+#gridPropsContainer{
+    grid-area: cont3;
+}
+
+#gridPropsItem{
+    grid-area: cont1;
+}
+
+footer{
+    grid-area: foot;
+}

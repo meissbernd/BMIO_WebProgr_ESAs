@@ -1,0 +1,111 @@
+*,
+*::after,
+*::before{
+    box-sizing: border-box;
+}
+
+:root{
+    font-family: sans-serif;
+}
+
+/* innere div: Flex items */
+div > div{
+    background: hsl(0 0% 80%);
+}
+
+/* Verläßliche Zentrierung horizontal und vertikal
+Geben Sie im HTML mehr oder weniger Inhalt und die zentrierte Box passt sich an. */
+#center{
+    background: hsl(0 0% 30%);
+    height: 20vh;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+/* responsive Navigation */
+#flexRWD{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+#flexRWD > div{
+    flex: 0 1 20em;
+    margin: 1%;
+}
+
+/* sidebar und main content */
+/* Flexbox */
+#sidebar{
+    height: 50vh;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: stretch;
+}
+
+/* Flex Items und Flexbox */
+#sidebar > div{
+    flex: 1 1 24em;
+    margin: 1%;
+    /* Flexbox in Flex Items */
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#sidebar > div:first-of-type{
+    /* flex-basis überschreibt width, deshalb hier max-width */
+    max-width: 20%;
+}
+
+/* vertical stack */
+#verticalStackFlex{
+    height: 50vh;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    gap: 5px;
+    text-align: center;
+}
+
+#verticalStackFlex > div:nth-of-type(2){
+    flex: 1 0 auto;
+}
+
+/* responsive card design */
+#card{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: stretch;
+}
+#card > div{
+    height: 15em;
+    margin: 1%;
+    flex: 0 1 15em;
+    /* flexbox in flex item */
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: stretch;
+    text-align: center;
+}
+#card > div > div{
+    background: hsl(0 0% 95%);
+    flex: 0 0 5em;
+}
+
+/* horizontale Navigation links, letztes item immer rechts */
+#navSearch{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    gap: 3px;
+}
+#navSearch > div:last-of-type{
+    margin-left: auto;
+}
