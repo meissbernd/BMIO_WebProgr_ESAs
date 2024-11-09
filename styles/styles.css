@@ -127,7 +127,7 @@ main {
         "team_info          team_photo"
         "education          ."
         "kinderschutz_info  kinderschutz_photo"
-        "foot               foot";
+        "championship_table championship_table";
 }
 
 main h1 {
@@ -157,5 +157,21 @@ main h1 {
 }
 
 #championship_table {
-    grid-area: foot;
+    grid-area: championship_table; /* Weist die Grid-Area für die Meisterschaftstabelle zu */
+    display: grid; /* Setzt die Anzeige auf Grid für den Artikel */
+    grid-template-columns: 1fr 1fr; /* Zwei gleich große Spalten */
+    gap: 5px; /* Abstand zwischen den Spalten */
+}
+
+#championship_table h2 {
+    grid-column: span 2; /* Überschrift über beide Spalten */
+    text-align: center;
+}
+
+#championship_table p {
+    grid-column: 1; /* Text in der ersten Spalte */
+}
+
+#championship_table table {
+    grid-column: 2; /* Tabelle in der zweiten Spalte */
 }
