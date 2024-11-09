@@ -74,5 +74,46 @@ a {
     cursor: pointer;
 }
 
+/* Entfernt die Standard-Aufzählungszeichen */
+ul {
+    list-style: none;
+}
+
 /* ***************************************************************************
 /* Spezielle Einstellungen */
+article,
+footer,
+figure,
+li {
+    background: var(--signal_color);
+}
+
+
+body {
+    background-color: var(--accent-color);
+}
+
+table {
+    background: var(--main-color);
+    border-collapse: collapse;
+}
+
+/* Flexbox */
+/* Navbar als Responsive Web Design mit grid*/
+nav {
+    display: grid;
+    gap: 5px;
+    grid-template-columns: 1fr auto; /* links: Platz für Verlinkungen, rechts: Logo */
+}
+
+nav ul {
+    display: grid;
+    gap: 5px;
+    grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
+}
+
+.logo_sv05 img {
+    max-height: 75px;
+    width: auto;
+    margin: 3px;
+}
