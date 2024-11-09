@@ -117,3 +117,45 @@ nav ul {
     width: auto;
     margin: 3px;
 }
+
+/* Main als Responsive Web Design mit grid*/
+main {
+    display: grid;
+    gap: 5px;
+    grid-template-areas:
+        "headline           headline"
+        "team_info          team_photo"
+        "education          ."
+        "kinderschutz_info  kinderschutz_photo"
+        "foot               foot";
+}
+
+main h1 {
+    grid-area: headline;
+    text-align: center;
+}
+
+#team-info {
+    grid-area: team_info; /* Weist die Section der Team-Info-Area zu */
+}
+
+#team-photo {
+    grid-area: team_photo; /* Weist die Figure der Team-Foto-Area zu */
+    text-align: center; /* Zentriert das Bild und die Bildunterschrift */
+}
+
+#education {
+    grid-area: education;
+}
+
+#kinderschutz_info {
+    grid-area: kinderschutz_info;
+}
+
+#kinderschutz_photo {
+    grid-area: kinderschutz_photo;
+}
+
+#championship_table {
+    grid-area: foot;
+}
