@@ -1,0 +1,141 @@
+/* General Settings */
+
+/*
+Margin und Padding auf Null,
+Box-sizing Methode: border-box (für alle Elemente)
+*/
+/* Universal-Selektor */
+*, *:before, *:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Variablen */
+    --basic-font-size: 12px;
+    --max-text-width: 80ch; /* empfohlen: 60 .. 80 */
+    --main-color: hsl(101, 100%, 42%);
+    --second-color: hsl(0, 0%, 0%);
+    --accent-color: hsl(101, 82%, 81%);
+    --table-frame-color: hsl(0 0% 80%);
+    --signal_color: hsl(0, 100%, 50%);
+    --scroll-padding: 0;
+
+    /* Basic Settings der Schrift */
+    font-size: var(--basic-font-size);
+    font-family: sans-serif;
+    line-height: 1.5;
+
+    scroll-behavior: smooth;
+}
+
+/* Body auf volle Viewport Höhe (Seiten mit sehr wenig Inhalt) */
+body {
+    min-height: 100vh;
+}
+
+/* relativer Schriftenaufbau */
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.7rem;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+main, nav, article, p, ul, form {
+    font-size: 1.4rem;
+}
+
+/* max-width in ch für Texte auf breiten viewports */
+p {
+    max-width: var(--max-text-width);
+}
+
+/* Breite externer Ressourcen: max Elterncontainer */
+img, picture, video {
+    max-width: 100%;
+}
+
+/* Table Borders */
+th, td {
+    border: 1px solid
+}
+
+/* Cursor für Verlinkungen anpassen */
+a {
+    cursor: pointer;
+}
+
+/* ***************************************************************************
+/* Spezielle Einstellungen */
+
+body {
+    background-color: var(--accent-color);
+}
+
+table {
+    background: var(--main-color);
+    border-collapse: collapse;
+}
+
+/* Flexbox */
+/* Navbar mit Responsive Web Design */
+/* Flexbox-Element */
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+/* Flexbox-Items */
+nav li {
+    /*background: hsl(0 0% 90%);*/
+    flex: 1 0 12em; /* flex: grow shrink basis */
+    text-align: left;
+    margin: 1%;
+}
+
+nav li:last-of-type {
+    order: -1;
+}
+
+/* Main mit Responsive Web Design */
+/* Flexbox-Element */
+main {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* Flexbox-Items */
+main article {
+    flex: 1 1 12em; /* flex: grow shrink basis */
+    margin: 1%;
+    /*background: hsl(0 0% 90%);*/
+    border: 1px dotted var(--second-color);
+    padding: 1%;
+}
+
+#siegel_kinderschutz {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    text-align: left;
+}
+
+#siegel_kinderschutz p, figure {
+    /*background: hsl(0 0% 90%);*/
+    margin: 1%;
+}
