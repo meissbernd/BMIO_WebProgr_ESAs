@@ -93,3 +93,80 @@ table {
 
 /* Flexbox */
 /* Navbar als Responsive Web Design mit grid*/
+nav {
+    display: grid;
+    gap: 5px;
+    padding: 5px;
+    grid-template-columns: 1fr auto; /* links: Platz für Verlinkungen, rechts: Logo */
+}
+
+nav ul {
+    display: grid;
+    gap: 5px;
+    grid-template-columns: repeat(auto-fit, minmax(20em, 1fr));
+}
+
+.logo_sv05 img {
+    max-height: 75px;
+    width: auto;
+    margin: 3px;
+}
+
+/* Main als Responsive Web Design mit grid*/
+main {
+    display: grid;
+    gap: 5px;
+    padding: 5px;
+    grid-template-areas:
+        "headline           headline"
+        "team_info          team_photo"
+        "education          ."
+        "kinderschutz_info  kinderschutz_photo"
+        "championship_table championship_table";
+}
+
+main h1 {
+    grid-area: headline;
+    text-align: center;
+}
+
+#team-info {
+    grid-area: team_info;
+}
+
+#team-photo {
+    grid-area: team_photo;
+    text-align: center;
+}
+
+#education {
+    grid-area: education;
+}
+
+#kinderschutz_info {
+    grid-area: kinderschutz_info;
+}
+
+#kinderschutz_photo {
+    grid-area: kinderschutz_photo;
+}
+
+#championship_table {
+    grid-area: championship_table;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Unter-Grid mit 2 Spalten */
+    gap: 5px;
+}
+
+#championship_table h2 {
+    grid-column: span 2; /* Überschrift über beide Spalten */
+    text-align: center;
+}
+
+#championship_table p {
+    grid-column: 1; /* Text in Spalte 1 */
+}
+
+#championship_table table {
+    grid-column: 2; /* Tabelle in Spalte 2 */
+}
