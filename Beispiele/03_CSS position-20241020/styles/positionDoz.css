@@ -1,0 +1,158 @@
+*,
+*::after,
+*::before{
+    box-sizing: border-box;
+}
+
+:root{
+    font-family: sans-serif; 
+    line-height: 1.5;
+    /* font: inherit; */
+    hanging-punctuation:first last;
+    scroll-behavior: smooth;
+    /* scroll-padding-top: 1em; */
+    /* scroll-padding needs to change with sticky navbar later on */
+     scroll-padding-top: var(--scroll-padding, 100px);
+ }
+
+ul{
+    list-style:none;
+    padding: 0;
+}
+
+article,
+figure,
+figcaption,
+img{
+    border: 1px solid;
+}
+
+figure{
+    background: hsl(240 70% 90%);
+}
+
+img{
+    filter: sepia(1) opacity(1);
+}
+
+/* ************* relative ************* */
+/* img{
+    position: relative;
+    bottom: 2em;
+    right: 25%;
+    z-index: 1;
+} */
+/* z-index: nur für positionierte Elemente. */
+
+/* ************* absolute ************* */
+
+/* figure hat keine Kindelemente mehr */
+/* img,
+figcaption{
+    position: absolute;
+} */
+
+/* img{
+    position: absolute;
+    top: 0;
+    left: 0;
+} */
+/* Bezugspunkt für das absolute positionierte img.
+Probieren Sie main, article und andere Vorfahren. */
+/* figure{
+    position: relative;
+} */
+
+/* ************* fixed ************* */
+/* img{
+    position: fixed;
+    top: 0;
+    right: 0;
+} */
+/* Bezugspunkt ist immer der viewport. */
+
+/* ************* sticky ************* */
+/* Problem: Verdeckungen */
+/* nav{
+    background: hsl(0 0% 90% / .8);
+    border: 1px solid;
+    position: fixed;
+    top: 1em;
+    left: 1em;
+    right: 1em;
+} */
+
+/* header{
+    background: hsl(0 0% 90% / .8);
+    border: 1px solid;
+    position: sticky;
+    top: 0;
+
+} */
+
+/* sticky positionierte Elemente 
+müssen direktes Kind vom body sein. */
+
+/* scroll-top-padding, also der Abstand 
+von Verlinkungen zum header,
+wird mit js berechnet. */
+
+/* use case absolute */
+/* figure{
+    width: min-content;padding: .5em .5em 3em;
+    border: none;
+    position: relative;
+    margin: 2% auto;
+}
+
+figcaption{
+    border: none;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+}
+
+img{
+    border: none;
+    display: block;
+}
+ */
+
+/* Beispiel für das Zusammenspiel von relative und absolute. */
+figure{
+    width: min-content;padding: .5em;
+    border: none;
+    position: relative;
+    margin: 2% auto;
+}
+
+figcaption{
+    border: none;
+    text-align: center;
+    background: hsl(240 100% 50% / .4);
+    position: absolute;
+    bottom: calc(.7em + 1px);
+    left: .5em;
+    right: .5em;
+    padding: .4em;
+}
+
+/* Use Case position: absolute */
+article{
+    position: relative;
+}
+
+article > article > :last-child{
+    display: block;
+    text-decoration: none;
+    background: hsl(0 100% 50%);
+    color: hsl(0 0% 100%);
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    text-align: center;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: 1%;
+}
