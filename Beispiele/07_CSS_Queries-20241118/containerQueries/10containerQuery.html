@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Container Queries</title>
+        <link rel="stylesheet" href="styles/10containerQuery.css">
+    </head>
+    <body>
+        <h1>Container Queries</h1>
+        <main>
+            <div id="main-articles">
+                <article>
+                    <h2>Making components with responsive containers</h2>
+                    <div>
+                        <img src="pics/sonne.png" alt="Die Sonne!">
+                        <p>Container Queries are finally not experimental anymore!
+                        </p>
+                    </div>
+                </article>
+                <article>
+                    <h2>Responsive Design, but not for the viewport</h2>
+                    <div>
+                        <img src="pics/sonne.png" alt="Die Sonne!">
+                        <p>A lot of times you need a query not for the viewport 
+                        as a whole, but for a single container.
+                        Whenever the container is narrow you want elements to be in columns. 
+                        But when you have a broad container, elements should be in row.
+                        </p>
+                    </div>
+                </article>
+                <article>
+                    <h2>Organizing your HTML</h2>
+                    <div>
+                        <img src="pics/sonne.png" alt="Die Sonne!">
+                        <p>To do this you have to organize your HTML different.
+                        Basically you have to create an exta container, 
+                        which can then listen to a query.
+                        </p>
+                    </div>
+                </article>
+            </div>
+            <div id="container-rules">
+                <div>
+                    <article>
+                        <h2>The contain property</h2>
+                            <p>This property,
+                            <code>container-type: inline-size</code>,
+                            isolates our container. The value 
+                            tells the browser that every thing in here is selfcontained and does not effect 
+                            anything outside the container. <br>
+                            <code>inline-size</code> only respects the width,
+                            <code>size</code> respects width and height.
+                            </p>
+                            <p>This property,
+                                <code>container-type: inline-size</code>,
+                                isolates our container. The value 
+                                tells the browser that every thing in here is selfcontained and does not effect 
+                                anything outside the container. <br>
+                                <code>inline-size</code> only respects the width,
+                                <code>size</code> respects width and height.
+                                </p>
+                    </article>
+                    <article>
+                        <h2>Container-Query Units</h2>
+                        <ul>
+                            <li><code>cqi</code></li>
+                            <li><code>cqb</code></li>
+                            <li><code>cqw</code></li>
+                            <li><code>cqh</code></li>
+                            <li><code>cqmin</code></li>
+                            <li><code>cqmax</code></li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

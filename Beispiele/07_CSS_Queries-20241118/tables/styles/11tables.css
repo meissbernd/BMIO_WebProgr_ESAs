@@ -1,0 +1,44 @@
+*,
+*::after,
+*::before{
+    box-sizing: border-box;
+}
+:root{
+    font-family: sans-serif;
+    line-height: 1.3;
+}
+
+table{
+    width: 100%;
+    border: 1px solid;
+    text-align: left;
+}
+
+@media screen and (max-width: 40em) {
+    table{
+        border: 0;
+    }
+    tr{
+        display: block;
+        margin: .5%;
+    }
+    tr:nth-of-type(2n){
+        background: hsl(0 0% 80%);
+    }
+
+    td::before{
+        content: attr(data-label);
+        font-weight: bold;
+    }
+
+    td{
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+    }
+
+    thead{
+        display: none;
+    }
+
+}

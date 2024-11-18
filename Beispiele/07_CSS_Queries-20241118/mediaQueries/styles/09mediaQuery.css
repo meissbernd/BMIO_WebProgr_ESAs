@@ -1,0 +1,86 @@
+*,
+*::after,
+*::before{
+    box-sizing: border-box;
+}
+
+:root{
+    font-family: sans-serif;
+    --basic-font-size: 1rem;
+    font-size: var(--basic-font-size);
+    line-height: 1.3;
+}
+
+h1{
+    font-size: calc(var(--basic-font-size) * 1.8);
+}
+
+h2{
+    font-size: calc(var(--basic-font-size) * 1.6);
+}
+
+img{
+    max-width: 100%;
+}
+
+p{
+    max-width: 60ch;
+    margin: 2% auto;
+    padding: 2%;
+    background: hsl(240 0% 90%);
+}
+
+/* RWD ohne Query */
+div{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(24em, 1fr));
+    gap: 1%;
+}
+
+/* Abfragen für Veränderungen, die nicht immer das 
+Layout betreffen. */
+@media screen and (max-width: 35em){
+    /* Ein stylesheet im stylesheet */
+    p{
+        font-size: calc(var(--basic-font-size) * 1.8);
+        background: hsl(240 0 95%);
+    }
+    h1,
+    h2{
+        font-size: calc(var(--basic-font-size) * 2.2);
+        text-align: center;
+    }
+}
+
+@media print{
+    /* evtl. Bilder und Hintergründe mit
+    display: none entfernen */
+
+    form{
+        display: none;
+    }
+
+    p{
+        font-size: 18pt;
+        background: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    a::after{
+        content: attr(href);
+        display: block;
+    }
+}
+
+@media (prefers-color-scheme: dark){
+    p{
+        background: hsl(0 0% 0%);
+        color: hsl(0 0% 97%);
+    }
+    a{
+        color:hsl(240 100% 90%);
+        font-style: italic;
+    }
+}
+
