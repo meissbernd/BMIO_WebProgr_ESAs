@@ -18,6 +18,7 @@ Box-sizing Methode: border-box (für alle Elemente)
     --main-color: hsl(101, 100%, 42%);
     --second-color: hsl(0, 0%, 0%);
     --accent-color: hsl(101, 82%, 81%);
+    --accent-color-bright: hsl(101, 82%, 90%);
     --table-frame-color: hsl(0 0% 80%);
     --signal_color: hsl(0, 100%, 50%);
     --scroll-padding: 0;
@@ -91,5 +92,103 @@ table {
     border-collapse: collapse;
 }
 
-/* Flexbox */
-/* Navbar als Responsive Web Design mit grid*/
+/* *********************************************** */
+/* Media query< */
+/* Schriftgröße auf mobilen/kleinen Geräten vergrößern */
+@media screen and (max-width: 36em) {
+    :root {
+        /* basic-font-size als Bezugsgröße für alle Schriften neu setzen/vergrößern */
+        --basic-font-size: calc(var(--basic-font-size) * 1.8);
+    }
+
+    /* Hintergrund etwas heller */
+    body {
+        background-color: var(--accent-color-bright);
+    }
+
+    p {
+        text-align: justify;
+    }
+
+    h1,
+    h2 {
+        text-align: center;
+    }
+
+}
+
+/* *********************************************** */
+/* Print query: Drucken oder pdf-Ausgabe: */
+@media print {
+    /* Bilder nicht ausgeben */
+    img {
+        display: none;
+    }
+
+    /* Ausgabe des alt-Attributes (ähnlich der URL-Anzeige bei Links)
+    scheint nicht per css möglich ?! */
+    /* img::after {
+        display: block;
+        content: attr(alt);
+    } */
+    p {
+        font-size: 13pt;
+        background: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    a::after {
+        content: attr(href);
+        display: block;
+    }
+}
+
+/* *********************************************** */
+/* Container query anwenden */
+/* Vorbereitung: */
+/* row-flex container*/
+main {
+    display: flex;
+    flex-flow: row wrap;
+    gap: .5%;
+}
+
+/* flex items */
+article {
+    border: 2px solid;
+    background: hsl(240 50% 90%);
+    flex: 1 1 30em;
+}
+
+/* column-flex in parent row-flex */
+main article div {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+/* Eigentliche Anwendung */
+/* (Query)-Container bereitstellen */
+main article {
+    container-type: inline-size;
+}
+
+/* Container Query: Bilder neben Text */
+@container (min-width: 42em) {
+    main article div {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: flex-start;
+        gap: 1em;
+    }
+
+    main article > div > section {
+        flex: 1; /* Text und Bild section gleich gross */
+    }
+
+    p {
+        max-width: 60ch;
+    }
+}
