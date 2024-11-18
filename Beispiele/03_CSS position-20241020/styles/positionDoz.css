@@ -1,37 +1,37 @@
 *,
 *::after,
-*::before{
+*::before {
     box-sizing: border-box;
 }
 
-:root{
-    font-family: sans-serif; 
+:root {
+    font-family: sans-serif;
     line-height: 1.5;
     /* font: inherit; */
-    hanging-punctuation:first last;
+    hanging-punctuation: first last;
     scroll-behavior: smooth;
     /* scroll-padding-top: 1em; */
     /* scroll-padding needs to change with sticky navbar later on */
-     scroll-padding-top: var(--scroll-padding, 100px);
- }
+    scroll-padding-top: var(--scroll-padding, 100px);
+}
 
-ul{
-    list-style:none;
+ul {
+    list-style: none;
     padding: 0;
 }
 
 article,
 figure,
 figcaption,
-img{
+img {
     border: 1px solid;
 }
 
-figure{
+figure {
     background: hsl(240 70% 90%);
 }
 
-img{
+img {
     filter: sepia(1) opacity(1);
 }
 
@@ -119,14 +119,15 @@ img{
  */
 
 /* Beispiel für das Zusammenspiel von relative und absolute. */
-figure{
-    width: min-content;padding: .5em;
+figure {
+    width: min-content;
+    padding: .5em;
     border: none;
     position: relative;
     margin: 2% auto;
 }
 
-figcaption{
+figcaption {
     border: none;
     text-align: center;
     background: hsl(240 100% 50% / .4);
@@ -138,11 +139,11 @@ figcaption{
 }
 
 /* Use Case position: absolute */
-article{
+article {
     position: relative;
 }
 
-article > article > :last-child{
+article > article > :last-child {
     display: block;
     text-decoration: none;
     background: hsl(0 100% 50%);
