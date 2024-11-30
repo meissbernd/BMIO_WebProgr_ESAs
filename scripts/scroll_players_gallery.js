@@ -5,33 +5,47 @@
     console.log("Start Scrolling Script:");
 
     // Referenz auf relevante Elemente finden
-    const article = document.getElementById("players-pass-gallery");
-    const players_fig = article.querySelector('figure');
-    const players_img = players_fig.querySelector('img');
-    const players_caption = players_fig.querySelector('figcaption');
-    console.log("   Spielerbild", players_img);
-    console.log("   Spielerbildbeschreibung", players_caption);
+    const article = document.getElementById("players-passport-gallery");
+    const playersFig = article.querySelector('figure');
+    const playersImg = playersFig.querySelector('img');
+    const playersCaption = playersFig.querySelector('figcaption');
+    console.log("   Spielerbild", playersImg);
+    console.log("   Spielerbildbeschreibung", playersCaption);
 
-    // EventListener hinzufügen
-    players_img.addEventListener("click", changeImage, false);
+    // EventListener: Click auf Bild ruft Funktion zur Bildänderung auf
+    playersImg.addEventListener("click", changeImage, false);
 
+    // EventListener: Bei Mouseover andere css-Klasse setzen
+    playersImg.addEventListener("mouseover", event => {
+        playersImg.className = "players-gallery-image-hovered";
+    });
+
+    // EventListener: Bei Mouseout andere css-Klasse zurücksetzen
+    playersImg.addEventListener("mouseout", event => {
+        playersImg.className = "players-gallery-image";
+    });
+
+    const playersImages = [
+        ['LG.jpg', 'Spielerpass-Foto: LG'],
+        ['EvE.jpg', 'Spielerpass-Foto: EvE.'],
+        ['JK.jpg', 'Spielerpass-Foto: JK'],
+        ['TL.jpg', 'Spielerpass-Foto: TL']
+    ];
+
+    let currentIndex = 0;
 
     function changeImage() {
-        let url = players_img.src;
-        console.log(url);
-        players_caption.innerHTML = "Hallo";
+        let currentFilePath = playersImg.src;
+        currentIndex = (currentIndex + 1) % playersImages.length; // Nächster Index
+        playersImg.src = replaceFileName(currentFilePath, playersImages[currentIndex][0]); // Bild wechseln
+        playersCaption.innerHTML = playersImages[currentIndex][1];
 
-        // if(url){
-        //     img.src = "pics/sonneSad.jpg";
-        //     img.alt = "... oder Ärgernis."
-        //     figcaption.innerHTML = "... oder Ärgernis";
-        // }
-        // else{
-        //     img.src = "pics/sonne.png";
-        //     img.alt ="Wunderbare Sonne!";
-        //     figcaption.innerHTML = "Quelle des Wohlbefindens!"
-        // }
     }
 
+    function replaceFileName(filePath, newFileName) {
+        // Regex, um das letzte '/' und alles danach zu finden
+        const fileName = /\/[^\/]*$/;
+        return filePath.replace(fileName, '/' + newFileName);
+    }
 
 })();

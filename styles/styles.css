@@ -192,3 +192,23 @@ main article {
         max-width: 60ch;
     }
 }
+
+/* ***********************************************
+/* Styling der Bildergalerie */
+.players-gallery-image {
+    border: 2px solid var(--second-color); /* Rahmen */
+    border-radius: 10px; /* Abgerundete Ecken */
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); /* Schatteneffekt */
+}
+
+.players-gallery-image-hovered {
+    border: 2px solid var(--signal_color); /* Rahmen */
+    border-radius: 10px; /* Abgerundete Ecken */
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); /* Schatteneffekt */
+}
+
+.players-gallery-image-hovered:hover {
+    transform: scale(1.05); /* Bild vergrößern beim Hover */
+    transition: transform 0.3s; /* Sanfter Übergang */
+}
+
