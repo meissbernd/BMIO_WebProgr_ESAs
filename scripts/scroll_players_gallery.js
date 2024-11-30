@@ -1,16 +1,11 @@
 (function init() {
     "use strict";
 
-    console.clear()
-    console.log("Start Scrolling Script:");
-
     // Referenz auf relevante Elemente finden
     const article = document.getElementById("players-passport-gallery");
     const playersFig = article.querySelector('figure');
     const playersImg = playersFig.querySelector('img');
     const playersCaption = playersFig.querySelector('figcaption');
-    console.log("   Spielerbild", playersImg);
-    console.log("   Spielerbildbeschreibung", playersCaption);
 
     // EventListener: Click auf Bild ruft Funktion zur Bildänderung auf
     playersImg.addEventListener("click", changeImage, false);
@@ -25,6 +20,7 @@
         playersImg.className = "players-gallery-image";
     });
 
+    // List der Bilder und Beschreibung
     const playersImages = [
         ['LG.jpg', 'Spielerpass-Foto: LG'],
         ['EvE.jpg', 'Spielerpass-Foto: EvE.'],
@@ -38,8 +34,7 @@
         let currentFilePath = playersImg.src;
         currentIndex = (currentIndex + 1) % playersImages.length; // Nächster Index
         playersImg.src = replaceFileName(currentFilePath, playersImages[currentIndex][0]); // Bild wechseln
-        playersCaption.innerHTML = playersImages[currentIndex][1];
-
+        playersCaption.innerHTML = playersImages[currentIndex][1];  // Beschreibung wechseln
     }
 
     function replaceFileName(filePath, newFileName) {
