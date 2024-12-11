@@ -10,6 +10,7 @@
     // Actions definieren, wenn submit-button geklickt wurde
     submitButton.addEventListener("click", function (event) {
         const form = this.closest('form');  // Formular des Buttons holen
+        deleteOldMessages(form);
         const formDataIsValid = validateWithFeedback(form);
         if (formDataIsValid) {
             console.log("Validierung erfolgreich");
@@ -22,66 +23,76 @@
 
     // Validierung des Formulars mit Feedback an User
     function validateWithFeedback(form) {
-        if (form.checkValidity()) {
-            console.log("Alle Eingaben ok!");
-            return true
-        }
-        console.log("Invalide Eingaben vorhanden!");
+        let isValid = true;
+
         // Eingaberelevante Felder holen
-        const inputFields = form.querySelectorAll('input, textarea, select');
-        // Jede Eingabe prüfen
+        // const inputFields = form.querySelectorAll('input, textarea, select');
+        const inputFields = form.querySelectorAll('input[type="text"],' +
+            'input[type="tel"], input[type="email"], input[type="checkbox"], ' +
+            'textarea, select');
+
+        // Jedes Eingabefeld prüfen
         inputFields.forEach((inputField, index) => {
             if (!inputField.validity.valid) {
+                isValid = false;
                 const ErrorMessage = whichError(inputField);
                 showMessage(ErrorMessage, inputField);
-
-                // Alternativer Ansatz?
-                // inputField.setCustomValidity("CustomValidity: Bitte korrigieren Sie dieses Feld.");
-                // inputField.reportValidity();
             }
         })
-        return form.checkValidity();
+
+        // Separate Überprüfung der Checkboxen
+        const checkboxes = form.querySelectorAll('input[type="checkbox"]');
+        const isAnyChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+        if (!isAnyChecked) {
+            isValid = false;
+            showMessage("Bitte wählen Sie mindestens eine Spielform.", checkboxes[0]);
+        }
+
+        return isValid;
     }
 
     // Konkreten Eingabefehler identifizieren
     function whichError(field) {
         let validityState = field.validity;
         let errorMessages = [];
-
         if (validityState.valueMissing) {
-            errorMessages.push("Dieses Feld ist erforderlich.");
+            errorMessages.push("Eingabe erforderlich.");
         }
         if (validityState.typeMismatch) {
-            errorMessages.push("Ungültiger Typ.");
+            errorMessages.push("Entspricht nicht dem erwarteten Eingabetyp.");
         }
         if (validityState.patternMismatch) {
-            errorMessages.push("Muster stimmt nicht überein.");
+            errorMessages.push("Entspricht nicht dem erwarteten Eingabemuster.");
         }
         if (validityState.tooLong) {
             errorMessages.push("Zu lang.");
         }
-        if (validityState.tooShort) {
-            errorMessages.push("Zu kurz.");
-        }
-        if (validityState.rangeUnderflow) {
-            errorMessages.push("Wert zu niedrig.");
-        }
-        if (validityState.rangeOverflow) {
-            errorMessages.push("Wert zu hoch.");
-        }
-        if (validityState.stepMismatch) {
-            errorMessages.push("Schrittwert stimmt nicht überein.");
-        }
-
-        // Rückgabe der Fehlermeldungen als zusammenhängender String
+        // Rückgabe der Fehlermeldungen als ein String
         return errorMessages.length > 0 ? errorMessages.join(" ") : "Unbekannter Fehler.";
     }
 
+    // Fehlermeldungen anzeigen
     function showMessage(message, inputField) {
         const errorElement = document.createElement('span');
         errorElement.className = 'form-error-message'; // Klasse für Styling setzen
         errorElement.textContent = message; // Fehlermeldung setzen
-        inputField.parentNode.insertBefore(errorElement, inputField.nextSibling); // nach Eingabefeld einfügen
+
+        // Errorausgabe-Element hinter Eingabefeld einfügen
+        if (inputField.type === 'checkbox') {
+            const fieldset = inputField.closest('fieldset');
+            fieldset.appendChild(errorElement);
+        } else {
+            inputField.parentNode.insertBefore(errorElement, inputField.nextSibling); // nach Eingabefeld einfügen
+        }
     }
+
+    // Alte Fehlermeldungen entfernen
+    function deleteOldMessages(form) {
+        const errorElements = form.querySelectorAll('.form-error-message');
+        errorElements.forEach(errorElement => {
+            errorElement.remove();
+        })
+    }
+
 
 })();
