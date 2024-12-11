@@ -4,17 +4,16 @@
     console.clear();
     console.log("Start validate-friendly-game:");
 
-    const contactForm = document.getElementById('contactForm');
-    const submitButton = contactForm.querySelector('input[type="submit"]');
-    submitButton.addEventListener("click", (event) => {
-        console.log("Submit clicked");
-        const formDataIsValid = validateForm();
+    // submit-button in form-html identifizieren
+    const submitButton = document.querySelector('input[type="submit"]');
+
+    // Actions definieren, wenn submit-button geklickt wurde
+    submitButton.addEventListener("click", function (event) {
+        const form = this.closest('form');  // Formular des Buttons holen
+        const formDataIsValid = validateWithFeedback(form);
         if (formDataIsValid) {
             console.log("Validierung erfolgreich");
-            console.log(contactForm.checkValidity());
-            if (contactForm.checkValidity()) {
-                contactForm.submit();
-            }
+            form.submit();
         } else {
             console.log("Validierung fehlgeschlagen");
             event.preventDefault();
@@ -22,7 +21,7 @@
     });
 
     // Funktion zur Validierung des Formulars
-    function validateForm() {
+    function validateWithFeedback(form) {
         // const name = document.getElementById('name').value;
         // const email = document.getElementById('email').value;
         //
@@ -31,6 +30,6 @@
         //     alert('Bitte füllen Sie alle Felder aus.');
         //     return false; // Rückgabe false, wenn die Validierung fehlschlägt
         // }
-        return contactForm.checkValidity();
+        return form.checkValidity();
     }
 })();
