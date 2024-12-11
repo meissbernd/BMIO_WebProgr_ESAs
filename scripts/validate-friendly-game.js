@@ -26,10 +26,9 @@
         let isValid = true;
 
         // Eingaberelevante Felder holen
-        // const inputFields = form.querySelectorAll('input, textarea, select');
         const inputFields = form.querySelectorAll('input[type="text"],' +
-            'input[type="tel"], input[type="email"], input[type="checkbox"], ' +
-            'textarea, select');
+            'input[type="tel"], input[type="email"],' +
+            'input[type="radio"], textarea, select');
 
         // Jedes Eingabefeld prüfen
         inputFields.forEach((inputField, index) => {
@@ -93,6 +92,5 @@
             errorElement.remove();
         })
     }
-
 
 })();
