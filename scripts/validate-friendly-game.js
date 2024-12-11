@@ -32,11 +32,56 @@
         // Jede Eingabe prüfen
         inputFields.forEach((inputField, index) => {
             if (!inputField.validity.valid) {
-                console.log("invalide: " + inputField.name + " " + inputField.id);
+                const ErrorMessage = whichError(inputField);
+                showMessage(ErrorMessage, inputField);
+
+                // Alternativer Ansatz?
                 // inputField.setCustomValidity("CustomValidity: Bitte korrigieren Sie dieses Feld.");
                 // inputField.reportValidity();
             }
         })
         return form.checkValidity();
     }
+
+    // Konkreten Eingabefehler identifizieren
+    function whichError(field) {
+        let validityState = field.validity;
+        let errorMessages = [];
+
+        if (validityState.valueMissing) {
+            errorMessages.push("Dieses Feld ist erforderlich.");
+        }
+        if (validityState.typeMismatch) {
+            errorMessages.push("Ungültiger Typ.");
+        }
+        if (validityState.patternMismatch) {
+            errorMessages.push("Muster stimmt nicht überein.");
+        }
+        if (validityState.tooLong) {
+            errorMessages.push("Zu lang.");
+        }
+        if (validityState.tooShort) {
+            errorMessages.push("Zu kurz.");
+        }
+        if (validityState.rangeUnderflow) {
+            errorMessages.push("Wert zu niedrig.");
+        }
+        if (validityState.rangeOverflow) {
+            errorMessages.push("Wert zu hoch.");
+        }
+        if (validityState.stepMismatch) {
+            errorMessages.push("Schrittwert stimmt nicht überein.");
+        }
+
+        // Rückgabe der Fehlermeldungen als zusammenhängender String
+        return errorMessages.length > 0 ? errorMessages.join(" ") : "Unbekannter Fehler.";
+    }
+
+    function showMessage(message, inputField) {
+        const errorElement = document.createElement('span');
+        errorElement.className = 'form-error-message'; // Klasse für Styling setzen
+        errorElement.textContent = message; // Fehlermeldung setzen
+        inputField.parentNode.insertBefore(errorElement, inputField.nextSibling); // nach Eingabefeld einfügen
+    }
+
 })();
