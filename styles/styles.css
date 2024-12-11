@@ -212,3 +212,10 @@ main article {
     transition: transform 0.3s; /* Sanfter Übergang */
 }
 
+/* ***********************************************
+/* Styling der Fehlermeldungen im Formular */
+.form-error-message {
+    color: var(--signal_color);
+    font-weight: bold;
+}
+
