@@ -20,16 +20,23 @@
         }
     });
 
-    // Funktion zur Validierung des Formulars
+    // Validierung des Formulars mit Feedback an User
     function validateWithFeedback(form) {
-        // const name = document.getElementById('name').value;
-        // const email = document.getElementById('email').value;
-        //
-        // // Einfache Validierung
-        // if (name === '' || email === '') {
-        //     alert('Bitte füllen Sie alle Felder aus.');
-        //     return false; // Rückgabe false, wenn die Validierung fehlschlägt
-        // }
+        if (form.checkValidity()) {
+            console.log("Alle Eingaben ok!");
+            return true
+        }
+        console.log("Invalide Eingaben vorhanden!");
+        // Eingaberelevante Felder holen
+        const inputFields = form.querySelectorAll('input, textarea, select');
+        // Jede Eingabe prüfen
+        inputFields.forEach((inputField, index) => {
+            if (!inputField.validity.valid) {
+                console.log("invalide: " + inputField.name + " " + inputField.id);
+                // inputField.setCustomValidity("CustomValidity: Bitte korrigieren Sie dieses Feld.");
+                // inputField.reportValidity();
+            }
+        })
         return form.checkValidity();
     }
 })();
