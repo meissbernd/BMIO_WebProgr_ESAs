@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Ajax Spiele Wiki</title>
+    <script src="script/games.js" async defer></script>
+    <script src="script/universe.js" async defer></script>
+  </head>
+  <body>
+      <h1>AJAX</h1>
+      <article>
+        <h2>Datenübertragung zwischen Client und Server</h2>
+        <p>Anfragen an den Server und Verändern des HTML Dokumentes, 
+          ohne das gesamte Dokument neu zu laden.
+        </p>
+        <p>Für die Übertragung der Daten wird das XMLHttpRequest Objekt benötigt.</p>
+        <ol>
+          <li>Objekt erzeugen:<br>
+            <code>let request = new XMLHttpRequest()</code>
+          </li>
+          <li>Funktion für die entsprechenden Anweisungen deklarieren, was zu tun ist für den Server.
+            <br><code>request.onreadystatechange = function(){}</code>
+          </li>
+          <li>Verbindung zum Server herstellen:<br>
+            <code>request.open("GET", "url", true)</code>
+            <br>Alternativ auch mit "POST" und false für synchron.
+            <br>Status abfragen:<br>
+            0 - nicht initalisiert<br>
+            1 - lädt<br>
+            2 - fertig geladen<br>
+            3 - wartet<br>
+            4 - fertig
+          </li>
+          <li>Request senden:<br>
+            <code>request.send()</code>
+          </li>
+          <li>
+            Evtl. Request Header setzen für den richtigen MIME Type
+          </li>
+        </ol>
+      </article>
+      <article>
+        <h2>Beispiel</h2>
+        <form id="game-selector" method="get">
+          <label>Spiel: </label>
+          <select>
+            <option value="" disabled selected>Bitte auswählen...</option>
+            <option value="mau.json">Mau Mau</option>
+            <option value="mensch.json">Mensch ärgere Dich nicht</option>
+            <option value="dame.json">Dame</option>
+          </select>
+        </section>
+        <section id="game-panel">
+          <h2 class="title">Kein Spiel ausgewählt.</h2>
+          <a class="ref" target="_blank" href="#">
+            <span class="label"></span>
+          </a>
+          <p class="description"></p>
+        </form>    
+      </article>
+      <article id="universe">
+        <h2>Beispiel</h2>
+        <p id="sonne">Sonne</p>
+        <p id="mond">Mond</p>
+        <p id="stern">Stern</p>
+      </article>
+  </body>
+</html>
